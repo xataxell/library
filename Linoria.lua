@@ -3908,13 +3908,15 @@ function Library:CreateWindow(...)
 
 			if Library.ShowCustomCursor and Drawing then
 		                local Cursor = Drawing.new('Triangle');
-		                Cursor.Thickness = 5;
+		                Cursor.Thickness = 1;
+		                Cursor.Filled = true;
 		                Cursor.Visible = true;
-				local CursorOutline = Drawing.new("Triangle")
-				CursorOutline.Thickness = 1
-				CursorOutline.Filled = false
-				CursorOutline.Color = Color3.new(0, 0, 0)
-				CursorOutline.Visible = true
+
+		                local CursorOutline = Drawing.new('Triangle');
+		                CursorOutline.Thickness = 1;
+		                CursorOutline.Filled = false;
+		                CursorOutline.Color = Color3.new(0, 0, 0);
+		                CursorOutline.Visible = true;
 				
 				local OldMouseIconState = InputService.MouseIconEnabled
 				RunService:BindToRenderStep("LinoriaCursor", Enum.RenderPriority.Camera.Value - 1, function()
@@ -3922,12 +3924,13 @@ function Library:CreateWindow(...)
 					local mPos = InputService:GetMouseLocation()
 					local X, Y = mPos.X, mPos.Y
 					Cursor.Color = Library.AccentColor
-					Cursor.PointA = Vector2.new(X + 2, Y + 2)
-					Cursor.PointB = Vector2.new(X + 13.5, Y + 6)
-					Cursor.PointC = Vector2.new(X + 6, Y + 13.5)
-					CursorOutline.PointA = Vector2.new(X, Y)
-					CursorOutline.PointB = Vector2.new(X + 16, Y + 6)
-					CursorOutline.PointC = Vector2.new(X + 6, Y + 16)
+				        Cursor.PointA = Vector2.new(mPos.X, mPos.Y);
+				        Cursor.PointB = Vector2.new(mPos.X + 16, mPos.Y + 6);
+				        Cursor.PointC = Vector2.new(mPos.X + 6, mPos.Y + 16);
+
+				        CursorOutline.PointA = Cursor.PointA;
+				        CursorOutline.PointB = Cursor.PointB;
+				        CursorOutline.PointC = Cursor.PointC;
 					if not (Toggled and ScreenGui.Parent and Library.ShowCustomCursor) then
 						InputService.MouseIconEnabled = OldMouseIconState
 						Cursor:Destroy()
