@@ -3242,7 +3242,7 @@ function Library:Notify(Text, Time, SoundId)
 end;
 
 function Library:CreateWindow(...)
-		local Arguments = { ... }
+	local Arguments = { ... }
 	local Config = { AnchorPoint = Vector2.zero }
 
 	if type(...) == 'table' then
@@ -3273,7 +3273,7 @@ function Library:CreateWindow(...)
 		-- Config.AnchorPoint = Vector2.new(0.5, 0.5)
 		Config.Position = UDim2.new(0.5, -Config.Size.X.Offset/2, 0.5, -Config.Size.Y.Offset/2)
 	end
-
+	
 	local Window = {
 		Tabs = {};
 	};
@@ -3524,7 +3524,7 @@ function Library:CreateWindow(...)
 				local ChangeTick = tick();
 				SidesValues.Right = ChangeTick;
 				task.wait(0.15);
-
+				
 				if SidesValues.Right == ChangeTick then
 					Library.CanDrag = true;
 				end
@@ -3708,19 +3708,9 @@ function Library:CreateWindow(...)
 				BackgroundColor3 = 'AccentColor';
 			});
 
-			local TabboxLabel = Library:CreateLabel({
-				Size = UDim2.new(1, 0, 0, 18);
-				Position = UDim2.new(0, 4, 0, 2);
-				TextSize = 14;
-				Text = Info.Name;
-				TextXAlignment = Enum.TextXAlignment.Left;
-				ZIndex = 5;
-				Parent = BoxInner;
-			});
-
 			local TabboxButtons = Library:Create('Frame', {
 				BackgroundTransparency = 1;
-				Position = UDim2.new(0, 0, 0, 22);
+				Position = UDim2.new(0, 0, 0, 1);
 				Size = UDim2.new(1, 0, 0, 18);
 				ZIndex = 5;
 				Parent = BoxInner;
@@ -3773,7 +3763,7 @@ function Library:CreateWindow(...)
 
 				local Container = Library:Create('Frame', {
 					BackgroundTransparency = 1;
-					Position = UDim2.new(0, 4, 0, 43);
+					Position = UDim2.new(0, 4, 0, 20);
 					Size = UDim2.new(1, -4, 1, -20);
 					ZIndex = 1;
 					Visible = false;
@@ -3833,7 +3823,7 @@ function Library:CreateWindow(...)
 						end;
 					end;
 
-					BoxOuter.Size = UDim2.new(1, 0, 0, 42 + Size + 2 + 2);
+					BoxOuter.Size = UDim2.new(1, 0, 0, 20 + Size + 2 + 2);
 				end;
 
 				Button.InputBegan:Connect(function(Input)
@@ -3900,7 +3890,7 @@ function Library:CreateWindow(...)
 	local TransparencyCache = {};
 	local Toggled = false;
 	local Fading = false;
-
+	
 	function Library:Toggle()
 		if Fading then
 			return;
@@ -3918,29 +3908,26 @@ function Library:CreateWindow(...)
 
 			if Library.ShowCustomCursor and Drawing then
 		                local Cursor = Drawing.new('Triangle');
-		                Cursor.Thickness = 1;
-		                Cursor.Filled = true;
+		                Cursor.Thickness = 5;
 		                Cursor.Visible = true;
-
-		                local CursorOutline = Drawing.new('Triangle');
-		                CursorOutline.Thickness = 1;
-		                CursorOutline.Filled = false;
-		                CursorOutline.Color = Color3.new(0, 0, 0);
-		                CursorOutline.Visible = true;
-
+				local CursorOutline = Drawing.new("Triangle")
+				CursorOutline.Thickness = 1
+				CursorOutline.Filled = false
+				CursorOutline.Color = Color3.new(0, 0, 0)
+				CursorOutline.Visible = true
+				
 				local OldMouseIconState = InputService.MouseIconEnabled
 				RunService:BindToRenderStep("LinoriaCursor", Enum.RenderPriority.Camera.Value - 1, function()
 					InputService.MouseIconEnabled = false
 					local mPos = InputService:GetMouseLocation()
 					local X, Y = mPos.X, mPos.Y
 					Cursor.Color = Library.AccentColor
-				        Cursor.PointA = Vector2.new(mPos.X, mPos.Y);
-				        Cursor.PointB = Vector2.new(mPos.X + 16, mPos.Y + 6);
-				        Cursor.PointC = Vector2.new(mPos.X + 6, mPos.Y + 16);
-
-				        CursorOutline.PointA = Cursor.PointA;
-				        CursorOutline.PointB = Cursor.PointB;
-				        CursorOutline.PointC = Cursor.PointC;
+					Cursor.PointA = Vector2.new(X + 2, Y + 2)
+					Cursor.PointB = Vector2.new(X + 13.5, Y + 6)
+					Cursor.PointC = Vector2.new(X + 6, Y + 13.5)
+					CursorOutline.PointA = Vector2.new(X, Y)
+					CursorOutline.PointB = Vector2.new(X + 16, Y + 6)
+					CursorOutline.PointC = Vector2.new(X + 6, Y + 16)
 					if not (Toggled and ScreenGui.Parent and Library.ShowCustomCursor) then
 						InputService.MouseIconEnabled = OldMouseIconState
 						Cursor:Destroy()
@@ -4017,7 +4004,7 @@ function Library:CreateWindow(...)
 			Visible = true;
 			Parent = ScreenGui;
 		});
-
+	
 		local ToggleUIInner = Library:Create('Frame', {
 			BackgroundColor3 = Library.MainColor;
 			BorderColor3 = Library.AccentColor;
@@ -4026,11 +4013,11 @@ function Library:CreateWindow(...)
 			ZIndex = 201;
 			Parent = ToggleUIOuter;
 		});
-
+	
 		Library:AddToRegistry(ToggleUIInner, {
 			BorderColor3 = 'AccentColor';
 		});
-
+	
 		local ToggleUIInnerFrame = Library:Create('Frame', {
 			BackgroundColor3 = Color3.new(1, 1, 1);
 			BorderSizePixel = 0;
@@ -4039,7 +4026,7 @@ function Library:CreateWindow(...)
 			ZIndex = 202;
 			Parent = ToggleUIInner;
 		});
-
+	
 		local ToggleUIGradient = Library:Create('UIGradient', {
 			Color = ColorSequence.new({
 				ColorSequenceKeypoint.new(0, Library:GetDarkerColor(Library.MainColor)),
@@ -4048,7 +4035,7 @@ function Library:CreateWindow(...)
 			Rotation = -90;
 			Parent = ToggleUIInnerFrame;
 		});
-
+	
 		Library:AddToRegistry(ToggleUIGradient, {
 			Color = function()
 				return ColorSequence.new({
@@ -4057,7 +4044,7 @@ function Library:CreateWindow(...)
 				});
 			end
 		});
-
+	
 		local ToggleUIButton = Library:Create('TextButton', {
 			Position = UDim2.new(0, 5, 0, 0);
 			Size = UDim2.new(1, -4, 1, 0);
@@ -4071,7 +4058,7 @@ function Library:CreateWindow(...)
 			ZIndex = 203;
 			Parent = ToggleUIInnerFrame;
 		});
-
+	
 		Library:MakeDraggable(ToggleUIOuter);
 
 		ToggleUIButton.MouseButton1Down:Connect(function()
@@ -4087,7 +4074,7 @@ function Library:CreateWindow(...)
 			Visible = true;
 			Parent = ScreenGui;
 		});
-
+	
 		local LockUIInner = Library:Create('Frame', {
 			BackgroundColor3 = Library.MainColor;
 			BorderColor3 = Library.AccentColor;
@@ -4096,11 +4083,11 @@ function Library:CreateWindow(...)
 			ZIndex = 201;
 			Parent = LockUIOuter;
 		});
-
+	
 		Library:AddToRegistry(LockUIInner, {
 			BorderColor3 = 'AccentColor';
 		});
-
+	
 		local LockUIInnerFrame = Library:Create('Frame', {
 			BackgroundColor3 = Color3.new(1, 1, 1);
 			BorderSizePixel = 0;
@@ -4109,7 +4096,7 @@ function Library:CreateWindow(...)
 			ZIndex = 202;
 			Parent = LockUIInner;
 		});
-
+	
 		local LockUIGradient = Library:Create('UIGradient', {
 			Color = ColorSequence.new({
 				ColorSequenceKeypoint.new(0, Library:GetDarkerColor(Library.MainColor)),
@@ -4118,7 +4105,7 @@ function Library:CreateWindow(...)
 			Rotation = -90;
 			Parent = LockUIInnerFrame;
 		});
-
+	
 		Library:AddToRegistry(LockUIGradient, {
 			Color = function()
 				return ColorSequence.new({
@@ -4127,7 +4114,7 @@ function Library:CreateWindow(...)
 				});
 			end
 		});
-
+	
 		local LockUIButton = Library:Create('TextButton', {
 			Position = UDim2.new(0, 5, 0, 0);
 			Size = UDim2.new(1, -4, 1, 0);
@@ -4141,9 +4128,9 @@ function Library:CreateWindow(...)
 			ZIndex = 203;
 			Parent = LockUIInnerFrame;
 		});
-
+	
 		Library:MakeDraggable(LockUIOuter);
-
+		
 		LockUIButton.MouseButton1Down:Connect(function()
 			Library.CantDragForced = not Library.CantDragForced;
 		end)
