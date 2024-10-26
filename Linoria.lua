@@ -3095,7 +3095,7 @@ do
 		Position = UDim2.fromOffset(5, 2),
 		TextXAlignment = Enum.TextXAlignment.Left,
 
-		Text = 'Keybinds';
+		Text = 'Information';
 		ZIndex = 104;
 		Parent = KeybindInner;
 	});
@@ -3104,7 +3104,7 @@ do
 	local KeybindContainer = Library:Create('Frame', {
 		BackgroundTransparency = 1;
 		Size = UDim2.new(1, 0, 1, -20);
-		Position = UDim2.new(0, 0, 0, 20);
+		Position = UDim2.new(0, 0, 0, 30);
 		ZIndex = 1;
 		Parent = KeybindInner;
 	});
