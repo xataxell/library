@@ -3103,7 +3103,7 @@ do
 
 	local KeybindContainer = Library:Create('Frame', {
 		BackgroundTransparency = 1;
-		Size = UDim2.new(1, 0, 1, -24);
+		Size = UDim2.new(1, 0, 1, -25);
 		Position = UDim2.new(0, 0, 0, 24);
 		ZIndex = 1;
 		Parent = KeybindInner;
