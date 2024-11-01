@@ -2204,7 +2204,7 @@ do
 		local Container = Groupbox.Container;
 
 		if not Info.Compact then
-			local InfoTextThing = Library:CreateLabel({
+			Library:CreateLabel({
 				Size = UDim2.new(1, 0, 0, 10);
 				TextSize = 14;
 				Text = Info.Text;
@@ -2304,8 +2304,7 @@ do
 			elseif Info.HideMax then
 				DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
 			else
-				DisplayLabel.Text = ''
-				InfoTextThing.Text = Info.Text .. ':' .. string.format('%s', Slider.Value .. Suffix)
+				DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
 				--DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
 				--DisplayLabel.Text = string.format('%s/%s', Slider.Value .. Suffix, Slider.Max .. Suffix);
 			end
