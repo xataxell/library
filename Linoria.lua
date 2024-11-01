@@ -2211,7 +2211,7 @@ do
 				TextXAlignment = Enum.TextXAlignment.Left;
 				TextYAlignment = Enum.TextYAlignment.Bottom;
 				ZIndex = 5;
-			        Visible = false
+			        Visible = false;
 				Parent = Container;
 			});
 
