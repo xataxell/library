@@ -2299,7 +2299,11 @@ do
 			local Suffix = Info.Suffix or '';
 
 			if Info.Compact then
-				DisplayLabel.Text = Info.Text .. ': ' .. Slider.Value .. Suffix
+				if Info.Text ~= '' or Info.Text ~= ' ' then
+				    DisplayLabel.Text = Info.Text .. ': ' .. Slider.Value .. Suffix
+				else
+				    DisplayLabel.Text = Slider.Value .. Suffix
+				end
 			elseif Info.HideMax then
 				DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
 			else
