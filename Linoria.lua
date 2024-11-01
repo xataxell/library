@@ -2211,6 +2211,7 @@ do
 				TextXAlignment = Enum.TextXAlignment.Left;
 				TextYAlignment = Enum.TextYAlignment.Bottom;
 				ZIndex = 5;
+			        Visible = false
 				Parent = Container;
 			});
 
@@ -2281,6 +2282,14 @@ do
 			Parent = SliderInner;
 		});
 
+		local DisplayLabel2 = Library:CreateLabel({
+			Size = UDim2.new(1, 0, 1, 0);
+			TextSize = 14;
+			Text = 'Placeholder: 1';
+			ZIndex = 10;
+			Parent = Container;
+		});
+
 		Library:OnHighlight(SliderOuter, SliderOuter,
 			{ BorderColor3 = 'AccentColor' },
 			{ BorderColor3 = 'Black' }
@@ -2303,7 +2312,9 @@ do
 			elseif Info.HideMax then
 				DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
 			else
-				DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
+				DisplayLabel.Text = ''
+				DisplayLabel2.Text = Info.Text .. ':' .. string.format('%s', Slider.Value .. Suffix)
+				--DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
 				--DisplayLabel.Text = string.format('%s/%s', Slider.Value .. Suffix, Slider.Max .. Suffix);
 			end
 
