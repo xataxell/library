@@ -2303,7 +2303,8 @@ do
 			elseif Info.HideMax then
 				DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
 			else
-				DisplayLabel.Text = string.format('%s/%s', Slider.Value .. Suffix, Slider.Max .. Suffix);
+				DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
+				--DisplayLabel.Text = string.format('%s/%s', Slider.Value .. Suffix, Slider.Max .. Suffix);
 			end
 
 			local X = Library:MapValue(Slider.Value, Slider.Min, Slider.Max, 0, 1);
