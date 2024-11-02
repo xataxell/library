@@ -57,7 +57,7 @@ local Library = {
 	ActiveTab = nil;
 	Toggled = false;
 	
-	MinSize = Vector2.new(350, 700);
+	MinSize = Vector2.new(550, 300);
 	IsMobile = false;
 	DevicePlatform = Enum.Platform.None;
 	CanDrag = true;
@@ -71,7 +71,7 @@ pcall(function() Library.DevicePlatform = InputService:GetPlatform(); end); -- F
 Library.IsMobile = (Library.DevicePlatform == Enum.Platform.Android or Library.DevicePlatform == Enum.Platform.IOS);
 
 if Library.IsMobile then
-	Library.MinSize = Vector2.new(350, 500); -- Make UI little bit smaller.
+	Library.MinSize = Vector2.new(550, 200); -- Make UI little bit smaller.
 end
 
 local RainbowStep = 0
