@@ -2053,7 +2053,7 @@ do
 		local ToggleOuter = Library:Create('Frame', {
 			BackgroundColor3 = Color3.new(0, 0, 0);
 			BorderColor3 = Color3.new(0, 0, 0);
-			Size = UDim2.new(0, 13, 0, 13);
+			Size = UDim2.new(0, 7, 0, 7);
 			ZIndex = 5;
 			Parent = Container;
 		});
