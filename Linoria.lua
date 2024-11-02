@@ -2053,7 +2053,7 @@ do
 		local ToggleOuter = Library:Create('Frame', {
 			BackgroundColor3 = Color3.new(0, 0, 0);
 			BorderColor3 = Color3.new(0, 0, 0);
-			Size = UDim2.new(0, 7, 0, 7);
+			Size = UDim2.new(0, 11, 0, 11);
 			ZIndex = 5;
 			Parent = Container;
 		});
@@ -2079,7 +2079,7 @@ do
 		local ToggleLabel = Library:CreateLabel({
 			Size = UDim2.new(0, 216, 1, 0);
 			Position = UDim2.new(1, 6, 0, -1);
-			TextSize = 14;
+			TextSize = 11;
 			Text = Info.Text;
 			TextXAlignment = Enum.TextXAlignment.Left;
 			ZIndex = 6;
