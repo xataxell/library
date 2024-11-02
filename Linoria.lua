@@ -2079,7 +2079,7 @@ do
 		local ToggleLabel = Library:CreateLabel({
 			Size = UDim2.new(0, 216, 1, 0);
 			Position = UDim2.new(1, 6, 0, -1);
-			TextSize = 11;
+			TextSize = 14;
 			Text = Info.Text;
 			TextXAlignment = Enum.TextXAlignment.Left;
 			ZIndex = 6;
