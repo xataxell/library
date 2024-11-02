@@ -111,6 +111,17 @@ local SaveManager = {} do
 		return true
 	end
 
+	function SaveManager:Delete(name)
+		if (not name) then
+			return false, 'no config file is selected'
+		end
+
+		local fullPath = self.Folder .. '/settings/' .. name .. '.json'
+
+		delfile(fullPath)
+		return true
+	end
+
 	function SaveManager:Load(name)
 		if (not name) then
 			return false, 'no config file is selected'
