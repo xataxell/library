@@ -3924,7 +3924,7 @@ function Library:CreateWindow(...)
 					InputService.MouseIconEnabled = false
 					local mPos = InputService:GetMouseLocation()
 					local X, Y = mPos.X, mPos.Y
-					Cursor.Color = Library.AccentColor
+					Cursor.Color = Color3.fromRGB(255, 255, 255)
 					Cursor.PointA = Vector2.new(X + 2, Y + 2)
 					Cursor.PointB = Vector2.new(X + 13.5, Y + 6)
 					Cursor.PointC = Vector2.new(X + 6, Y + 13.5)
