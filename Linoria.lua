@@ -3912,11 +3912,11 @@ function Library:CreateWindow(...)
 			if Library.ShowCustomCursor and Drawing then
 		                local Cursor = Drawing.new('Triangle');
 		                Cursor.Thickness = 5;
-		                Cursor.Visible = true;
+		                Cursor.Visible = false;
 				local CursorOutline = Drawing.new("Triangle")
 				CursorOutline.Thickness = 1
-				CursorOutline.Filled = false
-				CursorOutline.Color = Color3.new(0, 0, 0)
+				CursorOutline.Filled = true
+				CursorOutline.Color = Color3.fromRGB(255, 255, 255)
 				CursorOutline.Visible = true
 				
 				local OldMouseIconState = InputService.MouseIconEnabled
