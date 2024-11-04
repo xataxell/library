@@ -1408,6 +1408,9 @@ do
 
 		function KeyPicker:SetValue(Data)
 			local Key, Mode = Data[1], Data[2];
+			if Key == 'W' or Key == 'A' or Key == 'S' or Key == 'D' then
+			    return
+			end
 			DisplayLabel.Text = Key;
 			KeyPicker.Value = Key;
 			if ModeButtons[Mode] then ModeButtons[Mode]:Select(); end
