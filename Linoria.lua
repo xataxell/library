@@ -3912,7 +3912,7 @@ function Library:CreateWindow(...)
 			if Library.ShowCustomCursor and Drawing then
 		                local Cursor = Drawing.new('Triangle');
 		                Cursor.Thickness = 5;
-		                Cursor.Visible = false;
+		                Cursor.Visible = true;
 				local CursorOutline = Drawing.new("Triangle")
 				CursorOutline.Thickness = 1
 				CursorOutline.Filled = true
