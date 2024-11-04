@@ -53,7 +53,7 @@ local Library = {
 
 	Signals = {};
 	ScreenGui = ScreenGui;
-	
+
 	ActiveTab = nil;
 	Toggled = false;
 	
@@ -2628,7 +2628,7 @@ do
 				Str = Dropdown.Value or '';
 			end;
 
-			ItemList.Text = (Str == '' and '--' or Str);
+			ItemList.Text = (Str == '' and 'none' or Str);
 		end;
 
 		function Dropdown:GetActiveValues()
