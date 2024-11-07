@@ -2711,7 +2711,7 @@ do
 					end;
 
 					ButtonLabel.TextColor3 = Selected and Library.AccentColor or Library.FontColor;
-					Library.RegistryMap[ButtonLabel].Properties.TextColor3 = Selected and Color3.fromRGB(255, 255, 255) or 'FontColor';
+					Library.RegistryMap[ButtonLabel].Properties.TextColor3 = Selected and 'AccentColor' or 'FontColor';
 				end;
 
 				ButtonLabel.InputBegan:Connect(function(Input)
