@@ -1824,7 +1824,7 @@ do
 		local DividerOuter = Library:Create('Frame', {
 			BackgroundColor3 = Color3.new(0, 0, 0);
 			BorderColor3 = Color3.new(0, 0, 0);
-			Size = UDim2.new(1, -4, 0, 3);
+			Size = UDim2.new(1, -4, 0, 1);
 			ZIndex = 5;
 			Parent = Container;
 		});
