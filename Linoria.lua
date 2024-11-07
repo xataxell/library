@@ -1578,7 +1578,7 @@ do
 
 		local TextLabel = Library:CreateLabel({
 			Size = UDim2.new(1, -4, 0, 15);
-			TextSize = 14;
+			TextSize = 11;
 			Text = Text;
 			TextWrapped = DoesWrap or false,
 			TextXAlignment = Enum.TextXAlignment.Left;
