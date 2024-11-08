@@ -19,6 +19,7 @@ ProtectGui(ScreenGui);
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 ScreenGui.Parent = GetHUI();
+ScreenGui.IgnoreGuiInset = true
 
 local Toggles = {};
 local Options = {};
