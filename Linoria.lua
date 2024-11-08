@@ -3143,6 +3143,13 @@ function Library:SetWatermark(Text)
 	Library.WatermarkText.Text = Text;
 end;
 
+function Library:SetWatermarkPosition(X, Y)
+	local ScreenSize = game.Workspace.CurrentCamera.ViewportSize
+	local X = (X / 100) * ScreenSize.X
+	local Y = (Y / 100) * ScreenSize.Y
+	Library.Watermark.Position = UDim2.new(0, X, 0, Y)
+end
+	
 function Library:Notify(Text, Time, SoundId)
 	local XSize, YSize = Library:GetTextBounds(Text, Library.Font, 14);
 
