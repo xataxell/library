@@ -2792,7 +2792,7 @@ do
 
 			ListOuter.Visible = true;
 			Library.OpenedFrames[ListOuter] = true;
-			DropdownArrow.Rotation = 180;
+			DropdownArrow.Image = 'http://www.roblox.com/asset/?id=11622919444';
 			
 			RecalculateListSize();
 		end;
@@ -2804,7 +2804,7 @@ do
 
 			ListOuter.Visible = false;
 			Library.OpenedFrames[ListOuter] = nil;
-			DropdownArrow.Rotation = 0;
+			DropdownArrow.Image = 'http://www.roblox.com/asset/?id=12072054746';
 		end;
 
 		function Dropdown:OnChanged(Func)
