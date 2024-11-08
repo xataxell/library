@@ -15,11 +15,16 @@ local GetHUI = gethui or (function() return CoreGui end);
 local IsKrampus = ((identifyexecutor or (function() return "" end))():lower() == "krampus");
 
 local ScreenGui = Instance.new('ScreenGui');
+local IndicatorScreenGui = Instance.new('ScreenGui');
 ProtectGui(ScreenGui);
+ProtectGui(IndicatorScreenGui);
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 ScreenGui.Parent = GetHUI();
-ScreenGui.IgnoreGuiInset = true
+
+IndicatorScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
+IndicatorScreenGui.Parent = GetHUI();
+IndicatorScreenGui.IgnoreGuiInset = true
 
 local Toggles = {};
 local Options = {};
@@ -3005,7 +3010,7 @@ do
 		Size = UDim2.new(0, 213, 0, 20);
 		ZIndex = 200;
 		Visible = false;
-		Parent = ScreenGui;
+		Parent = IndicatorScreenGui;
 	});
 
 	local WatermarkInner = Library:Create('Frame', {
@@ -3068,7 +3073,7 @@ do
 		Size = UDim2.new(0, 210, 0, 20);
 		Visible = false;
 		ZIndex = 100;
-		Parent = ScreenGui;
+		Parent = IndicatorScreenGui;
 	});
 
 	local KeybindInner = Library:Create('Frame', {
