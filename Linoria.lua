@@ -2796,6 +2796,7 @@ do
 			ListOuter.Visible = true;
 			Library.OpenedFrames[ListOuter] = true;
 			DropdownArrow.Image = 'http://www.roblox.com/asset/?id=11622919444';
+			DropdownArrow.ImageColor3 = 'FontColor';
 			
 			RecalculateListSize();
 		end;
@@ -2808,6 +2809,7 @@ do
 			ListOuter.Visible = false;
 			Library.OpenedFrames[ListOuter] = nil;
 			DropdownArrow.Image = 'http://www.roblox.com/asset/?id=12072054746';
+			DropdownArrow.ImageColor3 = 'FontColor';
 		end;
 
 		function Dropdown:OnChanged(Func)
