@@ -1378,7 +1378,7 @@ do
 
             	        for _, Label in pairs(Library.KeybindContainer:GetChildren()) do
                     	    if Label:IsA('TextLabel') then
-				print("Label: ", Label.Name, "Visible: ", Label.Visible, 'State: ' .. State)
+                                print("Label: ", Label.Name, "Visible: ", Label.Visible, 'State: ' .. tostring(State))
                                 if not Label.Visible then
                            	    YSize = YSize + 18
                                     Label.Visible = true
@@ -1392,7 +1392,7 @@ do
                     else
                         for _, Label in pairs(Library.KeybindContainer:GetChildren()) do
                             if Label:IsA('TextLabel') then
-				print("Label: ", Label.Name, "Visible: ", Label.Visible, 'State: ' .. State)
+				print("Label: ", Label.Name, "Visible: ", Label.Visible, 'State: ' .. tostring(State))
                                 Label.Visible = false
                             end
                         end
