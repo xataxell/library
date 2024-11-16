@@ -1366,22 +1366,20 @@ do
 
 	                local State = KeyPicker:GetState()
 
-	                ContainerLabel.Text = string.format('%s : [%s]', Info.Text, KeyPicker.Value)
-
 	                ContainerLabel.Visible = true
 	                ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor
 
 	                Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor'
 
 	                ContainerLabel.TextXAlignment = Enum.TextXAlignment.Left
-	                ContainerLabel.Text = string.format('%-10s : [%s]', Info.Text, KeyPicker.Value)
+	                ContainerLabel.Text = string.format('%-15s : [%s]', Info.Text, KeyPicker.Value)
 	
 	                local YSize = 0
 	                local XSize = 0
 
 	                for _, Label in next, Library.KeybindContainer:GetChildren() do
 		            if Label:IsA('TextLabel') and Label.Visible then
-			        YSize = YSize + 18
+			        YSize = YSize + Label.TextBounds.Y
 			        if (Label.TextBounds.X > XSize) then
 				    XSize = Label.TextBounds.X
 			        end
