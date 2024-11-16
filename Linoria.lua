@@ -1360,40 +1360,32 @@ do
 		end;
 
 		function KeyPicker:Update()
-		    if Info.NoUI then
-		        return;
-        	    end;
+			if Info.NoUI then
+				return;
+			end;
 
-    		    local State = KeyPicker:GetState();
+			local State = KeyPicker:GetState();
 
-    		    ContainerLabel.Text = string.format('%s [%s]', Info.Text, KeyPicker.Value)
-   		    ContainerLabel.Visible = true;
-    		    ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
+			ContainerLabel.Text = string.format('%s [%s]', Info.Text, KeyPicker.Value)
 
-    		    Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
+			ContainerLabel.Visible = true;
+			ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
 
-		local xSize = 210
-		local ySize = 23
+			Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
 
-		if State then
-    		    for _, label in next, Library.KeybindContainer:GetChildren() do
-        		if label:IsA("TextLabel") then
-            		    label.Visible = true
-           		    ySize = ySize + 18
-            		    local currentX = label.TextBounds.X
-            		    if currentX > xSize then
-                		xSize = currentX
-            		    end
-        		end
-    		    end
-		else
-    		for _, label in next, Library.KeybindContainer:GetChildren() do
-        	    if label:IsA("TextLabel") then
-            		label.Visible = false
-        		end
-    		    end
-		end
-		Library.KeybindFrame.Size = UDim2.new(0, math.max(xSize + 10, 210), 0, ySize)
+			local YSize = 0
+			local XSize = 0
+
+			for _, Label in next, Library.KeybindContainer:GetChildren() do
+				if Label:IsA('TextLabel') and Label.Visible then
+					YSize = YSize + 18;
+					if (Label.TextBounds.X > XSize) then
+						XSize = Label.TextBounds.X
+					end
+				end;
+			end;
+
+			Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
 		end;
 
 
