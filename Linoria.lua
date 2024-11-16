@@ -1359,34 +1359,38 @@ do
 			ModeButtons[Mode] = ModeButton;
 		end;
 
-		function KeyPicker:Update()
-			if Info.NoUI then
-				return;
-			end;
+		    function KeyPicker:Update()
+		        if Info.NoUI then
+		            return
+		        end
 
-			local State = KeyPicker:GetState();
+	                local State = KeyPicker:GetState()
 
-			ContainerLabel.Text = string.format('%s [%s]', Info.Text, KeyPicker.Value)
+	                ContainerLabel.Text = string.format('%s : [%s]', Info.Text, KeyPicker.Value)
 
-			ContainerLabel.Visible = true;
-			ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
+	                ContainerLabel.Visible = true
+	                ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor
 
-			Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
+	                Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor'
 
-			local YSize = 0
-			local XSize = 0
+	                ContainerLabel.TextXAlignment = Enum.TextXAlignment.Left
+	                ContainerLabel.Text = string.format('%-20s : [%s]', Info.Text, KeyPicker.Value)
+	
+	                local YSize = 0
+	                local XSize = 0
 
-			for _, Label in next, Library.KeybindContainer:GetChildren() do
-				if Label:IsA('TextLabel') and Label.Visible then
-					YSize = YSize + 18;
-					if (Label.TextBounds.X > XSize) then
-						XSize = Label.TextBounds.X
-					end
-				end;
-			end;
+	                for _, Label in next, Library.KeybindContainer:GetChildren() do
+		            if Label:IsA('TextLabel') and Label.Visible then
+			        YSize = YSize + 18
+			        if (Label.TextBounds.X > XSize) then
+				    XSize = Label.TextBounds.X
+			        end
+		            end
+	                end
 
-			Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
-		end;
+	            Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
+                end;
+
 
 
 		function KeyPicker:GetState()
