@@ -1373,22 +1373,20 @@ do
     		    Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
 
     		    if State then
-        		    local YSize = 0
-        		    local XSize = 0
+        		local YSize = 0
+			local XSize = 0
 
-        		    for _, Label in next, Library.KeybindContainer:GetChildren() do
-            		        if Label:IsA('TextLabel') then
-                		        Label.Visible = true;
-                		        if Label.Visible then
-                   		            YSize = YSize + 18;
-                    		            if (Label.TextBounds.X > XSize) then
-                        		        XSize = Label.TextBounds.X
-                   		             end
-                		         end
-            		        end;
-        		    end;
+			for _, Label in next, Library.KeybindContainer:GetChildren() do
+				if Label:IsA('TextLabel') and not Label.Visible then
+					YSize = YSize + 18;
+					Label.Visible = true;
+					if (Label.TextBounds.X > XSize) then
+						XSize = Label.TextBounds.X
+					end
+				end;
+			end;
 
-        		    Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
+			Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
     		    else
         		    for _, Label in next, Library.KeybindContainer:GetChildren() do
             		    if Label:IsA('TextLabel') then
