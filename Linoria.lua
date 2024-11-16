@@ -1387,14 +1387,15 @@ do
                                 end
                             end
                         end
-
-                         Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
+			print("Label: ", Label.Name, "Visible: ", Label.Visible, 'State: ' .. State)
+                        Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
                     else
                         for _, Label in pairs(Library.KeybindContainer:GetChildren()) do
                             if Label:IsA('TextLabel') then
                                 Label.Visible = false
                             end
                         end
+			print("Label: ", Label.Name, "Visible: ", Label.Visible, 'State: ' .. State)
                         Library.KeybindFrame.Size = UDim2.new(0, 210, 0, 23)
 		    end
 		end;
