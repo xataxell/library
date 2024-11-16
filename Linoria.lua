@@ -1372,7 +1372,7 @@ do
 	                Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor'
 
 	                ContainerLabel.TextXAlignment = Enum.TextXAlignment.Left
-	                ContainerLabel.Text = tostring(string.format('%-15s', Info.Text) .. string.format('[%s]', KeyPicker.Value))
+	                ContainerLabel.Text = string.format('%-15s  : [%s]', Info.Text, KeyPicker.Value)
 	
 	                local YSize = 0
 	                local XSize = 0
@@ -1386,7 +1386,7 @@ do
 		            end
 	                end
 
-	            Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 20, 120), 0, YSize + 23)
+	            Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 100), 0, YSize + 23)
                 end;
 
 
