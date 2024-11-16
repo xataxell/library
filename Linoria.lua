@@ -1372,7 +1372,7 @@ do
 	                Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor'
 
 	                ContainerLabel.TextXAlignment = Enum.TextXAlignment.Left
-	                ContainerLabel.Text = string.format('%-15s\u00A0[%s]', Info.Text, KeyPicker.Value)
+	                ContainerLabel.Text = tostring(string.format('%-15s', Info.Text) .. string.format('[%s]', KeyPicker.Value))
 	
 	                local YSize = 0
 	                local XSize = 0
