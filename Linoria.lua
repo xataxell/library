@@ -1374,28 +1374,29 @@ do
 
     		    if State then
         		local YSize = 0
-			local XSize = 0
+        		local XSize = 0
 
-			for _, Label in next, Library.KeybindContainer:GetChildren() do
-				if Label:IsA('TextLabel') and not Label.Visible then
-					YSize = YSize + 18;
-					Label.Visible = true;
-					if (Label.TextBounds.X > XSize) then
-						XSize = Label.TextBounds.X
-					end
-				end;
-			end;
+            	        for _, Label in pairs(Library.KeybindContainer:GetChildren()) do
+                    	    if Label:IsA('TextLabel') then
+                                if not Label.Visible then
+                           	    YSize = YSize + 18
+                                    Label.Visible = true
+                                 end
+                                if Label.TextBounds.X > XSize then
+                                    XSize = Label.TextBounds.X
+                                end
+                            end
+                        end
 
-			Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
-    		    else
-        		    for _, Label in next, Library.KeybindContainer:GetChildren() do
-            		    if Label:IsA('TextLabel') then
-                		    Label.Visible = false;
-            		    end;
-        		    end;
-
-        		    Library.KeybindFrame.Size = UDim2.new(0, 210, 0, 23)
-    		    end
+                         Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
+                    else
+                        for _, Label in pairs(Library.KeybindContainer:GetChildren()) do
+                            if Label:IsA('TextLabel') then
+                                Label.Visible = false
+                            end
+                        end
+                        Library.KeybindFrame.Size = UDim2.new(0, 210, 0, 23)
+		    end
 		end;
 
 
