@@ -3146,12 +3146,12 @@ function Library:SetWatermarkVisibility(Bool)
 end;
 
 function Library:SetWatermark(Text)
-	local X, Y = Library:GetTextBounds(Text, Library.Font, 14);
-	Library.Watermark.Size = UDim2.new(0, X + 15, 0, (Y * 1.5) + 3);
-	Library:SetWatermarkVisibility(true)
+    local X, Y = Library:GetTextBounds(Text:gsub("<[^>]->", ""), Library.Font, 14)
+    Library.Watermark.Size = UDim2.new(0, X + 15, 0, (Y * 1.5) + 3)
+    Library:SetWatermarkVisibility(true)
 
-	Library.WatermarkText.Text = Text;
-end;
+    Library.WatermarkText.Text = Text
+end
 
 function Library:SetWatermarkPosition(X, Y)
 	local ScreenSize = game.Workspace.CurrentCamera.ViewportSize
