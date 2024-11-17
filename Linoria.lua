@@ -3062,7 +3062,7 @@ do
 		TextSize = 14;
 		TextXAlignment = Enum.TextXAlignment.Left;
 		ZIndex = 203;
-		RichText = true
+		RichText = true;
 		Parent = InnerFrame;
 	});
 
